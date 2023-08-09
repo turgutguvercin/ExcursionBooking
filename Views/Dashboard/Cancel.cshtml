@@ -1,0 +1,18 @@
+@model Excursion.Models.Booking
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+<div class="form">
+    <h1>Cancel Booking</h1>
+
+    <p>Are you sure you want to cancel the following booking?</p>
+
+    <p>Excursion: @Model.Tour?.Name</p>
+    <p>Date: @Model.TourDate.ToString("d")</p>
+    <p>Number of Guests: @Model.NumberOfGuests</p>
+    <p>Total Cost: £@Model.TotalCost</p>
+
+    <form asp-controller="Dashboard" asp-action="CancelConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Confirm cancellation" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Go back</a>
+    </form>
+</div>

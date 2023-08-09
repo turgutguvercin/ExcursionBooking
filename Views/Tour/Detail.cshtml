@@ -1,0 +1,88 @@
+@model Tour
+<div class="tour-details">
+    
+
+    <div class="tour-image">
+        <img src="~/Content/Images/@Model.Image" alt="@Model.Name" />
+    </div>
+
+    <div class="tour-info">
+       <h1>@Model.Name</h1>
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Price:</strong> £@Model.Price</p>
+        <p><strong>Address:</strong> @Model.Address.Street, @Model.Address.City, @Model.Address.Country</p>
+    
+        <a asp-controller="Booking" class="card-buttons" asp-for="Book" asp-action="Book" asp-route-id="@Model.Id">Book Now</a>
+    </div>
+</div>
+
+
+<style>
+
+   
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+
+}
+
+
+
+.tour-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container on the page */
+   display: flex;
+    align-items: start; 
+}
+
+.tour-image {
+    flex: 1; /* Occupy 1 fraction of the container space */
+    margin-right: 20px;
+}
+
+.tour-image img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.tour-info {
+    flex: 2; /* Occupy 2 fractions of the container space, hence double of .tour-image */
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-info p {
+    margin-bottom: 10px;
+}
+
+.tour-info strong {
+    color: #555;
+}
+
+.card-buttons{
+   align-self: flex-end; 
+    margin: 1em;
+    padding: 0.5em;
+    color: #fff;
+    background-color: #005676;
+    transition: 0.3s;
+    border: none;
+    border-radius: 8px;
+    max-width: 10%;
+}
+
+.card-buttons:hover{
+    background-color:#ff81b4;
+     color: #fff;
+}
+
+
+</style>

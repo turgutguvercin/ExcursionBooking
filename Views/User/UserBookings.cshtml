@@ -1,0 +1,24 @@
+@model IEnumerable<Booking>
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+
+<div class="form bookings">
+    <h1>Bookings for @ViewBag.Username</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tour Name</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Tour?.Name</td>
+                <td>@booking.TourDate.ToString("d")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,47 @@
+@model IEnumerable<Tour>
+
+
+<body id="excursions">
+
+    <main>
+        <h1 class="page-title">Excursions</h1>
+        <form class="search" asp-controller="Tour" asp-action="Index" method="get">
+            <input type="text" name="searchTerm" placeholder="Search..">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        
+        @if (!Model.Any())
+        {
+            <div class="form bookings"><p>No tours found for "@Context.Request.Query["searchTerm"]".</p></div>
+            
+        }
+        <div class="cards">
+
+            @foreach (var item in Model)
+            {
+
+                <article class="card">
+                    <img src="./Content/Images/@item.Image" alt="@item.Name">
+                    <h2>@item.Name</h2>
+                    <p>@item.Description</p>
+                    <span>Price: £@item.Price</span>
+                    <div class="card-buttons">
+                        <a asp-for="Tour" asp-action="Detail" asp-route-id="@item.Id">Find out more</a>
+                        <a asp-controller="Booking" class="card-buttons" asp-for="Book" asp-action="Book"
+                            asp-route-id="@item.Id">Book Now</a>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                        {
+                            <a asp-for="Tour" asp-action="Edit" asp-route-id="@item.Id">Edit </a>
+                            <a asp-for="Tour" asp-action="Edit" asp-route-id="@item.Id">Delete </a>
+                        }
+
+                    </div>
+                </article>
+
+            }
+
+        </div>
+
+    </main>
+</body>

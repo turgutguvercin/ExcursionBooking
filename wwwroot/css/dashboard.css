@@ -1,0 +1,145 @@
+
+
+main h1 {
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #444;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table thead tr {
+    background-color: #005676;
+    color: #fff;
+}
+
+.table thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+    background-color: #e6e6e6;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 0.5em;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-danger {
+    background-color: #ff81b4;
+    color: #fff;
+    transition: 0.3s;
+    
+}
+
+.btn-danger:hover {
+    background-color: #ff3c8a;
+    color: #fff;
+}
+
+.btn-danger a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.btn-danger a:hover {
+    color: #ddd;
+}
+
+.btn-secondary {
+    background-color: #005676;
+    color: #fff;
+}
+
+.bookings{
+    min-width: 40em;
+    margin-bottom: 20em;
+}
+
+.tile-buttons {
+    display: inline-block;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.tile:hover {
+    background: #e0e0e0;
+}
+
+.tile a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+
+.tile {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    align-content: center;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center; 
+    transition: 0.3s;
+    
+}
+
+.tile a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%; 
+    height: 100%; 
+}
+
+i {
+    margin-right: 10px; 
+}

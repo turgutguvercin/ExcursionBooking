@@ -1,0 +1,64 @@
+@model IEnumerable<Excursion.Models.Booking>
+
+
+
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+@if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+{
+    <div class="tile-buttons">
+        <div class="tile">
+            <a asp-controller="User" asp-action="listusers"><i class="fa-regular fa-user fa-3x"></i> User Management</a>
+        </div>
+        <div class="tile">
+            <a asp-controller="Tour" asp-action="Index"><i class="fa-solid fa-list-check fa-3x"></i>Tour Management</a>
+        </div>
+               <div class="tile">
+            <a asp-controller="Tour" asp-action="Create"><i class="fa-solid fa-plus fa-3x"></i>Create New Excursion</a>
+        </div>
+    </div>
+
+    
+}
+
+
+<div class="form bookings">
+    <h1>My Bookings</h1>
+@if (!Model.Any())
+{
+    <p>You have no bookings yet.</p>
+}
+
+else
+{
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tour Name</th>
+                    <th>Date</th>
+                    <th>Number of Guests</th>
+                    <th>Total Cost</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@booking.Tour?.Name</td>
+                        <td>@booking.TourDate.ToString("d")</td>
+                        <td>@booking.NumberOfGuests</td>
+                        <td>£@booking.TotalCost</td>
+                        <td>
+                            <button class="btn btn-danger">
+                                <a asp-controller="Dashboard" asp-action="Cancel" asp-route-id="@booking.Id" class="text-white">
+                                    <i class="fa-solid fa-square-xmark"></i> Cancel</a>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+}
+</div>

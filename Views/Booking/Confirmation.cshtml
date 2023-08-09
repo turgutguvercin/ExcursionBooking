@@ -1,0 +1,49 @@
+@using Excursion.Models
+@model Booking
+
+<div class="form">
+    <h1>Thank you for your booking!</h1>
+    <p>Your booking has been confirmed. Here are the details:</p>
+    <p>Tour: @Model.Tour.Name</p>
+    <p>Date: @Model.TourDate.ToShortDateString()</p>
+    <p>Number of Guests: @Model.NumberOfGuests</p>
+    <p>Total Cost: £@Model.TotalCost</p>
+    <p>We look forward to seeing you on the tour!</p>
+    <a class="btn btn-primary" asp-controller="Dashboard" asp-action="Index">Go to My Bookings</a>
+</div>
+
+
+<style>
+
+    main {
+        padding: 20px 0;
+        text-align: left;
+        font-family: Arial, sans-serif;
+    }
+
+    main h1 {
+        color: #005676;
+        margin-bottom: 20px;
+        font-size: 2em;
+    }
+    
+    main p {
+        color: #343a40;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+        line-height: 1.5;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #005676;
+        border: none;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        margin-top: 20px;
+        display: inline-block;
+      
+    }
+</style>

@@ -1,0 +1,44 @@
+@using Excursion.ViewModels
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+
+        <div class="form">
+            <p>
+            <h3>Log in to your account</h3>
+            </p>
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert">
+                    <span><b>Sorry!</b> - @TempData["Error"]</span>
+                </div>
+            }
+            <br>
+            <div>
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="EmailAddress" class="control-label">Email</label>
+                        <input asp-for="EmailAddress" class="form-control">
+                        <span asp-validation-for="EmailAddress" class="alert"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="alert"></span>
+                        <div class="alert"></div>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-secondary" asp-controller="Account" asp-action="Login" type="submit"  value="Log in" />
+                    </div>
+                    <div class="registration-guide form-group">
+                    <p>By signing-in you agree to <a href="#">terms & conditions</a>.</p>
+                    <hr>
+                    <p>To create an account <a href="./register"> click here.</a></p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+}
